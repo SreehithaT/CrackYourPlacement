@@ -1,0 +1,33 @@
+// https://leetcode.com/submissions/detail/696174921/
+public class Solution {
+    public boolean isPowerOfTwo(int n) {
+        // if(n<1) return false;
+        // if(n==1) return true;
+        // while((n&1)!=1){  // at anytime on dividing the number by 2 it shouldn't be odd
+        //     n>>=1;
+        // }
+        // if(n>1) return false;
+        // else return true;
+
+
+
+//APPROACH 2
+
+//         return new HashSet<>(Arrays.asList(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608,16777216, 33554432, 67108864, 134217728, 268435456, 536870912, 1073741824)).contains(n);
+       
+
+//APPROACH 3
+
+//return n>0 && Integer.bitCount(n)==14
+
+
+//APPROACH 4
+
+//return n > 0 && (1073741824 % n == 0);
+
+
+//APPROACH 5
+        return n>0 && (n&(n-1))==0;
+        
+            }
+}
