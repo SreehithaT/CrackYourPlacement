@@ -1,22 +1,74 @@
-//https://leetcode.com/problems/merge-sorted-array/
+// https://leetcode.com/problems/merge-sorted-array/
 class Solution {
-  public void merge(int[] nums1, int m, int[] nums2, int n) {
-    int p1 = m - 1;
-    int p2 = n - 1;
-    int i = m+n-1;
-
-    while(p2>=0){
-        if(p1>=0 && nums1[p1] > nums2[p2]){
-            nums1[i] = nums1[p1];
-            i--;
-            p1--;
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        // !!!!! NOTE: NON-DECREASING means not just increasing it means the series contain numbers in >= manner !!!!! //
+        // APPROACH 2: BETTER  TRAVERSING FROM RIGHT TO LEFT
+        //TC: O(N)       SC: O(1)
+        int p1=m-1;
+        int p2=n-1;
+        int p=m+n-1;
+        while(p2>=0){  // we consider only p2 becoz p1 contains length n+m which is always greater than or equal to n(m+n>=n) 
+            if(p1>=0 && nums1[p1]>nums2[p2]){
+                nums1[p]=nums1[p1];
+                p1--;
+            }
+            else{
+                nums1[p]=nums2[p2];
+                p2--;
+            }
+            p--;
         }
-        else{
-            nums1[i] = nums2[p2];
-            i--;
-            p2--;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        // APPROACH 1: BRUTE FORCE  TRAVERSING FROM LEFT TO RIGHT  
+        //TC: O(N)       SC: O(N)
+        // int nums[]=new int[n+m];
+        // int i=0;
+        // int j=0;
+        // int k=0;
+        // while(i<m && j<n){
+        //     if(nums1[i]<nums2[j]){
+        //         nums[k]=nums1[i];
+        //         i++;
+        //     }
+        //     else if(nums1[i]==nums2[j]){
+        //         nums[k]=nums1[i];
+        //         k++;
+        //         nums[k]=nums2[j];
+        //         i++;
+        //         j++;
+        //     }
+        //     else if(nums1[i]>nums2[j]){
+        //         nums[k]=nums2[j];
+        //         j++;
+        //     }
+        //     k++;
+        // }
+        // if(i==m && j<n){
+        //     for(int l=j;l<n;l++){
+        //         nums[k]=nums2[l];
+        //         k++;
+        //     }
+        // }
+        // if(j==n && i<m){
+        //     for(int l=i;l<m;l++){
+        //         nums[k]=nums1[l];
+        //         k++;
+        //     }
+        // }
+        // for(i=0;i<m+n;i++){
+        //     nums1[i]=nums[i];
+        // }
     }
-  
-  }
 }
