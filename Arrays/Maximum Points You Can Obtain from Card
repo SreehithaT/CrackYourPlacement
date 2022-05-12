@@ -5,6 +5,8 @@ SC : O(1)
 class Solution {
     public int maxScore(int[] cardPoints, int k) {
         // we solve it using sliding window approach!!
+        // Initially window is from 0 to n-k-1 i.e we included last k elements in our current sum variable. 
+        // Each time we slide the window towards right by one element.
         int n=cardPoints.length;
         int l=0;
         int r=n-k;
