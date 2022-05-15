@@ -1,0 +1,49 @@
+//Return indices of the number 4 from the given array
+APPPROACH 1:
+// By passing arraylist as an argument
+import java.util.*;  //to use arraylist
+public class Main
+{
+	public static void main(String[] args) {
+		int arr[]={1,2,3,4,5,4,6,4,7,4};  //=new int[n]; arr
+		int n=arr.length;
+		ArrayList<Integer> al =new ArrayList<Integer>();
+		System.out.println(index(0,arr,n,al));
+	}
+	public static ArrayList<Integer> index(int i, int arr[], int n, ArrayList<Integer> al){
+	    if(i==n){
+	        return al;
+	    }
+	    if(arr[i]==4){
+	        al.add(i);
+	    }
+	    return index(i+1, arr, n, al);  // returnung a function whose return type is arraylist .... So accepyted
+	    
+	}
+}
+
+
+APPPROACH 2: ************************************************(IMPORTANT)
+// without passing arraylist as an argument
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		int arr[]={1,2,3,4,5,4,6,4,7,4};
+		int n=arr.length;
+		System.out.println(index(0,arr,n));
+	}
+	public static ArrayList<Integer> index(int i, int arr[], int n){
+	    ArrayList<Integer> al =new ArrayList<>();
+	    if(i==n){
+	        return al;
+	    }
+	    if(arr[i]==4){
+	        al.add(i);
+	    }
+	    ArrayList<Integer> res =index(i+1,arr, n);
+	    al.addAll(res);
+	    return al;
+	    
+	}
+}
