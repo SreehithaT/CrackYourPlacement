@@ -1,0 +1,24 @@
+// remove string "apple" from the input string
+public class Main
+{
+	public static void main(String[] args) {
+	    String s="baccappled";
+	    String r="";
+	    delete(s,r);
+		
+	}
+	
+	public static void delete(String s, String r){
+	    if(s.length()==0){
+	        System.out.println(r);
+	        return;
+	    }
+	    if(s.startsWith("apple")){
+	        delete(s.substring(5),r);
+	    }
+	    else{
+	        delete(s.substring(1),r+s.charAt(0));
+	    }
+	    //return r;
+	}
+}
