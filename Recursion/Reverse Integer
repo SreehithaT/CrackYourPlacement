@@ -1,0 +1,45 @@
+Trick : Iteratoion will be obviously easier than recursion. So keep in mind iteration procedure then build a solution for recusion
+Iteration code : 
+public class Main
+{
+	public static void main(String[] args) {
+	    int n=1234;
+		System.out.println(reverse(n));
+	}
+	
+	public static int reverse(int n){
+	    int rev=0;
+	    while(n!=0){
+	        rev=(rev*10)+(n%10);
+	        n=n/10;
+	    }
+	    return rev;
+	}
+	    
+}
+
+In iteration code..... the base case is n=0, when n=0 we end the process then return the reversed number. So implement the same thing there. When base condtion is met,
+return reversed integer.
+Else we repeat the same function but just n value is changed to (n/10).
+Here in recursion code, we always need the reversed number.. So to avoid mistakes we always pass it along the function as argument.
+
+
+
+
+Recursion code:
+public class Main
+{
+	public static void main(String[] args) {
+	    int n=1234;
+	    int rev=0;
+		System.out.println(reverse(n,rev));
+	}
+	
+	public static int reverse(int n, int rev){
+	    if(n==0){
+	        return rev;
+	    }
+	    rev=(rev*10)+(n%10);
+	    return reverse(n/10,rev);
+	}
+}
