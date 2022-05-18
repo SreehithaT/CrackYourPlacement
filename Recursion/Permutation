@@ -1,0 +1,21 @@
+public class Main
+{
+	public static void main(String[] args) {
+		String str="abc";
+		String res="";
+		permu(res, str);
+	}
+	
+	public static void permu(String res, String str){
+	    if(str.isEmpty()){
+	        System.out.println(res);
+	        return;
+	    }
+	    char ch=str.charAt(0);
+	    for(int i=0;i<=res.length();i++){
+	        String f=res.substring(0,i); //" "
+	        String s=res.substring(i,res.length()); //"bc"
+	        permu(f+ch+s, str.substring(1));
+	    }
+	}
+}
