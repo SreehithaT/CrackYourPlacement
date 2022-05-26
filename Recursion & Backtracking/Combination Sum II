@@ -1,0 +1,25 @@
+https://leetcode.com/problems/combination-sum-ii/
+class Solution {
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        Arrays.sort(candidates);
+        List<List<Integer>> list = new ArrayList(); 
+        getCombinationSum2(0, candidates, target, list, new ArrayList());
+        return list;
+    }
+    void getCombinationSum2(int idx, int candidates[], int target, List<List<Integer>> list, List<Integer> curr){
+        if(target==0){
+            list.add(new ArrayList(curr));
+            return;
+        }
+        // if(target<0){
+        //     return;
+        // }
+        for(int i=idx; i<candidates.length; i++){
+            if(i>idx && candidates[i]==candidates[i-1])continue;
+            if(target-candidates[i]<0){break;}   
+            curr.add(candidates[i]);
+            getCombinationSum2(i+1, candidates, target-candidates[i], list, curr);
+            curr.remove(curr.size()-1);
+        }
+    }
+}
